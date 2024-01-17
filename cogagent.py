@@ -14,7 +14,7 @@ model = AutoModelForCausalLM.from_pretrained(
 
 # chat example
 query = 'Describe this image'
-image = Image.open(requests.get('https://github.com/THUDM/CogVLM/blob/main/examples/1.png?raw=true', stream=True).raw).convert('RGB')
+image = Image.open(requests.get('https://github.com/THUDM/CogVLM/blob/main/assets/wechat.jpg?raw=true', stream=True).raw).convert('RGB')
 inputs = model.build_conversation_input_ids(tokenizer, query=query, history=[], images=[image])  # chat mode
 inputs = {
     'input_ids': inputs['input_ids'].unsqueeze(0).to('cuda'),
